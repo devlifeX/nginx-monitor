@@ -16,7 +16,7 @@ Connections | Cpu Usage | Date
 107 | 0% | Wed Feb 06 2019 15:51:59 GMT
 118 | 43% | Wed Feb 06 2019 15:52:59 GMT
 ```
-column Connections is Nginx Active connections  
+column Connections is Nginx Active connections count  
 column Cpu Usage is Cpu Usage of our server  
 column Date is log date time  
 

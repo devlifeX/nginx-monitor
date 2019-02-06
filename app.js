@@ -109,9 +109,39 @@ const createLog = async url => {
   IO().add("server.log", content);
 };
 
+const help = () => {
+  const h = `
+Nginx Active connection and Cpu usage logger. 2019 - by dariush.vesal@gmail.com
+Released under the GNU GPL.
+
+--url                   url for nginx status - https://easyengine.io/tutorials/nginx/status-page
+--i                     Interval for logging period time
+-h --help               Print this help screen
+
+If your nginx_status has password
+
+Sample: nodejs app.js --url "--user username:password -L https://domain.com/nginx_status" --i 60000
+
+else if you haven't passord
+
+Sample: nodejs app.js --url "https://domain.com/nginx_status" --i 60000
+
+else if you are in local
+
+Sample: nodejs app.js --url "localhost/nginx_status" --i 60000
+
+`;
+  console.log(h);
+};
+
 const cli = () => {
   let argv = process.argv;
   const NEXT = 1;
+  let h = argv.indexOf("--help") !== -1 || argv.indexOf("-h") !== -1;
+  if (h) {
+    help();
+    return;
+  }
   let url = argv[argv.indexOf("--url") + NEXT];
   let interval = argv[argv.indexOf("--i") + NEXT];
 
@@ -121,5 +151,3 @@ const cli = () => {
 };
 
 cli();
-
-// nodejs app.js --url "--user dariushvesal:13711369 -L https://apl1.nabzino.com/nginx_status" --i 2000

@@ -121,3 +121,5 @@ const cli = () => {
 };
 
 cli();
+
+// nodejs app.js --url "--user dariushvesal:13711369 -L https://apl1.nabzino.com/nginx_status" --i 2000
